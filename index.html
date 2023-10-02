@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Amortization Calculator</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Income Tax Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+ 
+  <style>
+    body {
+      font-family: font-family: "Roboto", sans-serif;
+      size: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #e6ffff;
+      line-height: 10px;
+      padding: 5px;
+      max-width: 1200px;
+    }
+    h1 {
+      text-align: center;
+      margin: 30px auto;
+      width: 100%;
+      color: #505050;
+    }
+
+    form {
+      margin: auto;
+      margin-bottom: 10px;
+      width: 600px;
+      border: 2px solid black;
+      padding: 40px;
+      box-sizing: border-box;
+      border-radius: 10px;
+      background: linear-gradient(to bottom right, #FA8072 5%, #ccffcc 95%);
+      color: #330000;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      padding: 5px;
+    }
+
+    input, select {
+      margin-bottom: 10px;
+      padding: 5px;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 5px;
+      border: 1px solid gray;
+      font-weight: 200;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 10px;
+    }
+
+    input[type=number] {
+      -moz-appearance:textfield;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #A52A2A;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: grabbing;
+      font-weight: bold;
+      align-items: center;
+      margin-top: 20px
+    }
+
+    button:hover {
+      background-color: #F5FFFA;
+      color: #000;
+    }
+
+    table {
+      margin: 40px;
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+
+    th, td {
+      text-align: center;
+      padding: 10px;
+      border-bottom: 1px solid #ccfff8;
+    }
+
+    th {
+      background-color: #00646b;
+      color: white;
+    }
+
+    #days-input label {
+      margin-top: 10px;
+    }
+    
+    #basis-salary {
+      display: none;
+    }
+
+    #aside {
+      margin-top: 20px;
+      width: 20%;
+      float: right;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #aside img {
+      width: 100%;
+    }
+    
+      footer {
+      font-family: "Roboto", sans-serif;
+      size: 14px;
+      margin: 40px;
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+    
+  </style>
+</head>
+<body>
+  <h1 class="w3-hover-opacity w3-hover-text-dark-red">Amortization Calculator</h1>
+
+  <form>
+    <label for="loanAmount"><span class = "fa fa-money">   </span>  Loan amount (P):</label>
+    <input type="number" step="0.01" id="loanAmount" name="income" required>
+    
+    <label for="interestRate"><span class = "fa fa-money">   </span>  Interest rate (i):</label>
+    <input type="number" step="0.01" id="income" name="interestRate" required>
+    
+    <div id="amortizationTerm">
+      <label><span class = "fa fa-asl-interpreting"></span>  Amortization term:
+        <br><br>
+        <select>
+          <option for="amortizationTerm-yearly">Yearly</option>
+          <option for="amortizationTerm-monthly">Monthly</option>
+        </select>
+      </label>
+    </div>
+    
+    <div id="compounding-frequency">
+      <label>Compounding frequency
+        <br><br>
+        <select>
+          <option for="compounding-frequency-yearly">Yearly</option>
+          <option for="compounding-frequency-semi-annually">Semi-annually</option>
+          <option for="compounding-frequency-quarterly">Quarterly</option>
+          <option for="compounding-frequency-monthly">Monthly</option>
+          <option for="compounding-frequency-weekly">Weekly</option>
+          <option for="compounding-frequency-daily">Daily</option>
+        </select>
+      </label>
+    </div>
+    
+    <div id="payment-frequency">
+      <label>Payment frequency
+        <br><br>
+        <select>
+          <option for="payment-frequency-yearly">Yearly</option>
+          <option for="payment-frequency-semi-annually">Semi-annually</option>
+          <option for="payment-frequency-quarterly">Quarterly</option>
+          <option for="payment-frequency-monthly">Monthly</option>
+          <option for="payment-frequency-weekly">Weekly</option>
+          <option for="payment-frequency-daily">Daily</option>
+        </select>
+      </label>
+    </div>
+    
+    <button type="button" onclick="calculateTax()">Calculate</button>
+  <div id="aside">
+    <img src="https://4.bp.blogspot.com/-fp-LuzNluok/XHnYfw5QuTI/AAAAAABEfp0/7WdO6fnGZ3oIDAutFJ-BVFK8cGK8lYZxQCLcBGAs/s1600/AW3594167_14.gif" alt="tax calculator animation" />
+  </div>
+  </form>
+
+  <div class="w3-content w3-center">
+  <table style="display:none;">
+    <tr>
+      <th>Loan amount (P)</th>
+      <th>Interest rate (i)</th>
+      <th>Amortization term</th>
+      <th>Compounding frequency</th>
+      <th>Payment frequency</th>
+      <th>Payment (A)</th>
+      <th>Total payment amount</th>
+      <th>Interest payment</th>
+    </tr>
+    <tr>
+      <td id="loanAmount">0 VND</td>
+      <td id="interestRate">0 VND</td>
+      <td id="amortizationTerm">0 VND</td>
+      <td id="paymentFreq">0 VND</td>
+      <td>0 VND</td>
+      <td>0 VND</td>
+      <td>0 VND</td>
+      <td>0 VND</td>
+    </tr>
+  </table>
+  </div>
+
+  <div id="result"></div>
+
+  <script>
+function calculateLoan() {
+  let loanAmount = parseFloat(document.getElementById("loanAmount").value);
+  let interestRate = parseFloat(document.getElementById("interestRate").value) / 1200; // monthly interest rate
+  let years = parseInt(document.getElementById("amortizationTerm").value);
+  let months = years * 12; // total number of months
+  let paymentFreq = parseInt(document.getElementById("paymentFreq").value);
+  let paymentNum = months / (paymentFreq * 12); // number of payments
+  let payment = (loanAmount * interestRate) / (1 - Math.pow(1+interestRate, -paymentNum));
+  let totalPayment = payment * paymentNum;
+  let interestPayment = totalPayment - loanAmount;
+  document.getElementById("monthlyPayment").value = payment.toFixed(2);
+  document.getElementById("totalPayment").value = totalPayment.toFixed(2);
+  document.getElementById("interestPayment").value = interestPayment.toFixed(2);
+}      nettakehome = grossSalary - (tax + socialInsurance);
+      let grossSalaryDisplay = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(grossSalary);
+      let socialInsuranceDisplay = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(socialInsurance);
+      let nontaxableIncomeDisplay = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(nontaxableIncome);
+      let taxableIncomeDisplay = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(taxableIncome);
+      let personalDeductionDisplay = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(personalDeduction);
+      let taxDisplay = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(tax.toFixed(2));
+      let tuDisplay = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(tu.toFixed(2));
+      let netDisplay = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(nettakehome.toFixed(2));
+ 
+    /*
+      document.getElementById("gross-salary").innerHTML = grossSalaryDisplay;
+      document.getElementById("social-insurance").innerHTML = socialInsuranceDisplay;
+      document.getElementById("nontaxable-income").innerHTML = nontaxableIncomeDisplay;
+      document.getElementById("taxable-income").innerHTML = taxableIncomeDisplay;
+      document.getElementById("personal-deduction").innerHTML = personalDeductionDisplay;
+      document.getElementById("tax-amount").innerHTML = taxDisplay;
+      document.getElementById("tu-amount").innerHTML = tuDisplay;
+      document.getElementById("net").innerHTML = netDisplay;
+
+      document.getElementsByTagName("table")[0].style.display = "block"; 
+      // shows the table after all fields have been inputted
+    }
+
+    document.getElementById("days-input").style.display = "none";
+    document.getElementById("basis-salary").style.display = "none";
+
+    document.getElementById("basis-other").addEventListener("click", function() {
+      document.getElementById("basis-salary").style.display = "block";
+    });
+
+    document.getElementById("basis-gross").addEventListener("click", function() {
+      document.getElementById("basis-salary").style.display = "none";
+    });
+
+    document.getElementById("type").addEventListener("change", function() {
+      if (this.value === "expat") {
+        document.getElementById("days-input").style.display = "block";
+      } else {
+        document.getElementById("days-input").style.display = "none";
+      }
+    });*/
+  </script>
+</body>
+  
+<footer class="w3-block w3-margin-bottom w3-margin-top w3-opacity w3-hover-opacity-off">
+
+<div class="w3-left w3-margin">
+<h6><span class="fa fa-legal"></span><b></b> Article 3, Decree 38/2022/ND-CP</h6>
+<h6><span class="fa fa-legal"></span><b></b> Documentary No. 1927/BHXH-TST from 1st July, 2023</h6>
+<h6><span class="fa fa-legal"></span><b></b> Article 2, 3 Decree 24/2023/ND-CP from 1st July, 2023</h6>  
+<h6><span class="fa fa-legal"></span><b></b> Article 85, 86 Vietnam Social Insurance in 2014</h6>
+<h6><span class="fa fa-legal"></span><b></b> Personal Income Tax Law in 2007</h6>
+<h6><span class="fa fa-legal"></span><b></b> Personal Income Tax Law (amended) in 2012</h6>
+<h6><span class="fa fa-legal"></span><b></b> Circular 111/2013/TT-BTC</h6>  
+<h6><span class="fa fa-legal"></span><b></b> Resolution 954/2020/UBTVQH14</h6>
+  <br>
+<h6><span class="	fa fa-paw"></span><b> Power By:</b> Meow.Nalini98</h6>
+</footer>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
